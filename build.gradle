@@ -1,0 +1,52 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.9'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.mtvs'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// spring web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// jpa 사용
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// 개발 편의성 도구
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// 테스트용 db
+	runtimeOnly 'com.h2database:h2'
+
+	// mysql db
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// 테스트 도구
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
