@@ -1,5 +1,15 @@
 # EXIT - MTVS-3rdBE
-![Logo](https://cdn.pixabay.com/photo/2016/10/27/10/25/leuchtkasten-1773916_1280.jpg)
+[메타버스 아카데미] 융합 프로젝트 - EXIT 
+
+## 프로젝트 소개 
+"재난 대피 시뮬레이션" 프로그램 <p>
+이 프로젝트는 메타버스 아카데미의 XR-언리얼, 백엔드(back-end), AI, TA 팀이 협업하여 진행한 프로젝트입니다. <br>
+
+### 기획 내용 
+제한적인 시야에서 드론의 안내를 받아 화재로 뒤덮인 건물을 탈출하는 내용으로 진행됩니다. 
+
+## 백엔드 개발자가 하는 역할
+관리자 페이지, API, chatbot 서빙, 로그인, 회원가입 등
 
 
 ## :busts_in_silhouette: Team Members ##
