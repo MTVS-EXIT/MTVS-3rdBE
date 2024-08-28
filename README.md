@@ -1,5 +1,5 @@
 # EXIT - MTVS-3rdBE
-<img src="https://cdn.pixabay.com/photo/2016/10/27/10/25/leuchtkasten-1773916_1280.jpg" alt="Logo" width="200"/>
+![Logo](https://cdn.pixabay.com/photo/2016/10/27/10/25/leuchtkasten-1773916_1280.jpg)
 
 
 ## :busts_in_silhouette: Team Members ##
