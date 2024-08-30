@@ -2,6 +2,7 @@ package com.mtvs.mtvs3rdbe.user.service;
 
 import com.mtvs.mtvs3rdbe.user.domain.User;
 import com.mtvs.mtvs3rdbe.user.dto.UserCreateRequestDTO;
+import com.mtvs.mtvs3rdbe.user.dto.UserRequestDTO;
 import com.mtvs.mtvs3rdbe.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ class UserAuthServiceTest {
 
     @Test
     void signUp() {
-        UserCreateRequestDTO userDTO = new UserCreateRequestDTO("test", "1234", "goodman");
+        UserRequestDTO.signUpDTO userDTO = new UserRequestDTO.signUpDTO("test", "1234", "goodman");
 
         userAuthService.signUp(userDTO);
 

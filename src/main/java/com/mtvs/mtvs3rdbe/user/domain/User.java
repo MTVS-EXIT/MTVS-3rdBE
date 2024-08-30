@@ -5,12 +5,14 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+
 @Table(name = "tbl_user")
 public class User {
 
@@ -22,6 +24,8 @@ public class User {
     private String loginId;
     private String password;
     private String nickname;
+    @ColumnDefault("'USER'")
+    private Authority authority;
     private LocalDateTime createAt;
 
     @Builder
@@ -29,6 +33,8 @@ public class User {
         this.loginId = loginId;
         this.password = password;
         this.nickname = nickname;
+        this.authority = Authority.USER;
         this.createAt = createAt;
     }
+
 }
