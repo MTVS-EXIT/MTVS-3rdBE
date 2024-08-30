@@ -1,8 +1,11 @@
 package com.mtvs.mtvs3rdbe.user.controller;
 
 import com.mtvs.mtvs3rdbe.user.dto.UserRequestDTO;
+import com.mtvs.mtvs3rdbe.user.dto.UserResponseDTO;
 import com.mtvs.mtvs3rdbe.user.service.UserAuthService;
+import com.mtvs.mtvs3rdbe.user.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,14 +23,17 @@ public class UserAuthController {
     public ResponseEntity<?> signUp(@RequestBody UserRequestDTO.signUpDTO signUpDTO) {
         userAuthService.signUp(signUpDTO);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody UserRequestDTO.loginDTO loginDTO) {
-        userAuthService.login(loginDTO);
+        UserResponseDTO.authTokenDTO responseDTO = userAuthService.login(loginDTO);
 
         System.out.println("login 로직 통과 ------------");
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION, responseDTO.grantType() + " " + responseDTO.accessToken())
+                .header("Refresh-Token", responseDTO.grantType() + " " + responseDTO.refreshToken())
+                .body(ApiUtils.success(null));
     }
 }
