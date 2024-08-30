@@ -5,7 +5,6 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 /build/generated/
-/src/main/java/com/todorian/Q*.java
 
 ### STS ###
 .apt_generated
