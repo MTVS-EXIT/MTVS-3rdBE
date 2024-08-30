@@ -41,6 +41,7 @@ public class UserAuthService {
         userRepository.deleteById(userId);
     }
 
+    // 회원가입 메소드 (nickname 중복 확인 로직 추가)
     public void signUp(UserCreateRequestDTO userCreateRequestDTO) {
         // 로그인 아이디 중복 확인
         checkDuplicatedLoginId(userCreateRequestDTO.getLoginId());
