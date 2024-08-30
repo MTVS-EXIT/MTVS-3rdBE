@@ -24,6 +24,7 @@ public class User {
     private String loginId;
     private String password;
     private String nickname;
+    @Enumerated(value = EnumType.STRING)
     @ColumnDefault("'USER'")
     private Authority authority;
     private LocalDateTime createAt;
