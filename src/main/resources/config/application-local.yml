@@ -1,12 +1,19 @@
 spring:
+#  // test DB (DB 없을 때 주석 풀고 사용)
+#  datasource:
+#    url: jdbc:h2:mem:test;MODE=MySQL
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+#  h2:
+#    console:
+#      enabled: true
+
   datasource:
-    url: jdbc:h2:mem:test;MODE=MySQL
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
+    url: jdbc:mysql://localhost:3306/exit
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: exit
+    password: 1234
 
   application:
     name: mtvs-3rd-be
@@ -15,7 +22,7 @@ spring:
     show-sql: true
     database: mysql
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
