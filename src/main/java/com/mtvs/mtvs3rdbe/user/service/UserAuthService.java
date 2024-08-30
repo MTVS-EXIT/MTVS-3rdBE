@@ -132,13 +132,7 @@ public class UserAuthService {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken
                 = new UsernamePasswordAuthenticationToken(loginId, password);
 
-        System.out.println("usernamePasswordAuthenticationToken = " + usernamePasswordAuthenticationToken);
-
         AuthenticationManager manager = authenticationManagerBuilder.getObject();
-
-//        AuthenticationManager manager = authenticationManager(authenticationConfiguration);
-
-        System.out.println("manager = " + manager);
 
         Authentication authentication = manager.authenticate(usernamePasswordAuthenticationToken);
 

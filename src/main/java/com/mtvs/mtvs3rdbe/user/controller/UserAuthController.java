@@ -4,13 +4,11 @@ import com.mtvs.mtvs3rdbe.user.dto.UserRequestDTO;
 import com.mtvs.mtvs3rdbe.user.dto.UserResponseDTO;
 import com.mtvs.mtvs3rdbe.user.service.UserAuthService;
 import com.mtvs.mtvs3rdbe.user.utils.ApiUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -30,7 +28,24 @@ public class UserAuthController {
     public ResponseEntity<?> login(@RequestBody UserRequestDTO.loginDTO loginDTO) {
         UserResponseDTO.authTokenDTO responseDTO = userAuthService.login(loginDTO);
 
-        System.out.println("login 로직 통과 ------------");
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION, responseDTO.grantType() + " " + responseDTO.accessToken())
+                .header("Refresh-Token", responseDTO.grantType() + " " + responseDTO.refreshToken())
+                .body(ApiUtils.success(null));
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest httpServletRequest) {
+        userAuthService.logout(httpServletRequest);
+
+        return ResponseEntity.ok().body(ApiUtils.success(null));
+    }
+
+    @PostMapping("/reissue")
+    public ResponseEntity<?> reissueToken(HttpServletRequest httpServletRequest) {
+
+        UserResponseDTO.authTokenDTO responseDTO = userAuthService.reissueToken(httpServletRequest);
+
         return ResponseEntity.ok()
                 .header(HttpHeaders.AUTHORIZATION, responseDTO.grantType() + " " + responseDTO.accessToken())
                 .header("Refresh-Token", responseDTO.grantType() + " " + responseDTO.refreshToken())
