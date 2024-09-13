@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -60,6 +61,7 @@ public class UserAuthService {
                 .loginId(signUpDTO.loginId())
                 .password(passwordEncoder.encode(signUpDTO.password()))
                 .nickname(signUpDTO.nickname())
+                .createAt(LocalDateTime.now())
                 .build();
 
         // 회원 저장
