@@ -6,10 +6,10 @@ public class ResultRequestDTO {
 
     public record saveDTO(
             String playTime,
-            int itemCount,
-            int missionSuccessCount,
+            Integer itemCount,
+            Integer missionSuccessCount,
             Long userId,
-            SimulatorRole role
+            SimulatorRole simulatorRole
     ) {}
 
 }

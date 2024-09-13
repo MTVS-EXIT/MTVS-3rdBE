@@ -6,10 +6,7 @@ import com.mtvs.mtvs3rdbe.result.service.ResultService;
 import com.mtvs.mtvs3rdbe.user.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,13 +17,14 @@ public class ResultController {
     private final ResultService resultService;
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(ResultRequestDTO.saveDTO dto) {
+    public ResponseEntity<?> save(@RequestBody ResultRequestDTO.saveDTO dto) {
+        System.out.println("dto = " + dto);
         resultService.save(dto);
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
     // paging 처리 (필요하다면)
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<?> findResult() {
         List<Result> resultList = resultService.findAll();
         return ResponseEntity.ok().body(ApiUtils.success(resultList));

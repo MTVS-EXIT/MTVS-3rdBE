@@ -21,6 +21,7 @@ public class Result {
     private int missionSuccessCount;
     private Long userId;
     @Enumerated(EnumType.STRING)
+    @Column(name = "simulator_role")
     private SimulatorRole simulatorRole;
 
     @Builder
