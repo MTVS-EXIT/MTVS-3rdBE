@@ -30,8 +30,7 @@ public class SecurityConfig {
     private final JWTTokenProvider jwtTokenProvider;
 
     private static final String[] WHITE_LIST = {
-            "/api/auth/**",
-            "/swagger-ui.html"
+            "/api/auth/**"
     };
 
     // PasswordEncoder bean 등록

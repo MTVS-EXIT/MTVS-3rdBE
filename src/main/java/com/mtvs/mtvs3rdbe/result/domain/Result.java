@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -20,14 +18,18 @@ public class Result {
 
     private String playTime;
     private int itemCount;
-    private int mission_success_count;
+    private int missionSuccessCount;
     private Long userId;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "simulator_role")
+    private SimulatorRole simulatorRole;
 
     @Builder
-    public Result(String playTime, int itemCount, int mission_success_count, Long userId) {
+    public Result(String playTime, int itemCount, int missionSuccessCount, Long userId, SimulatorRole simulatorRole) {
         this.playTime = playTime;
         this.itemCount = itemCount;
-        this.mission_success_count = mission_success_count;
+        this.missionSuccessCount = missionSuccessCount;
         this.userId = userId;
+        this.simulatorRole = simulatorRole;
     }
 }
