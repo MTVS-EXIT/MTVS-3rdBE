@@ -8,4 +8,5 @@ public class RankRequestDTO {
     private Integer room;
     private Integer item;
     private Integer damage;
+    private String userNickname;
 }

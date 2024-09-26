@@ -5,6 +5,8 @@ import com.mtvs.mtvs3rdbe.rank.domain.RankRequestDTO;
 import com.mtvs.mtvs3rdbe.rank.service.RankService;
 import com.mtvs.mtvs3rdbe.user.utils.ApiUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +21,13 @@ public class RankController {
     @PostMapping("/rank")
     public ResponseEntity<?> save(@RequestBody RankRequestDTO dto) {
         rankService.save(dto);
-        return ResponseEntity.ok().body(ApiUtils.success(null));
+        return ResponseEntity.ok().body(ApiUtils.success("소방관 결과가 성공적으로 저장 되었습니다."));
     }
 
     @GetMapping("/ranks")
     public ResponseEntity<?> ranks() {
-        List<Rank> ranks = rankService.findAll();
-        return ResponseEntity.ok().body(ranks);
+        Pageable pageable = PageRequest.of(0, 20);
+        List<Rank> ranks = rankService.findRanks(pageable);
+        return ResponseEntity.ok().body(ApiUtils.success(ranks));
     }
 }
