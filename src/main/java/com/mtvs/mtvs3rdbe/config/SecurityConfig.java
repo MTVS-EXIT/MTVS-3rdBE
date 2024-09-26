@@ -60,7 +60,7 @@ public class SecurityConfig {
                         .requestMatchers(this.createMvcRequestMatcherForWhiteList(mvc))
                         .permitAll()
                         .requestMatchers("/swagger", "/swagger-ui.html", "/swagger-ui/**", "/api-docs", "/api-docs/**", "/v3/api-docs/**"
-                        , "/api/dranks", "/api/ranks")
+                        , "/api/dranks", "/api/ranks", "api/drank", "api/rank")
                         .permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exception -> {

@@ -18,15 +18,28 @@ public class RankService {
     private final RankRepository rankRepository;
 
     public void save(RankRequestDTO dto) {
-        Rank rank = Rank.builder()
-                .item(dto.getItem())
-                .room(dto.getRoom())
-                .playtime(dto.getPlaytime())
-                .damage(dto.getDamage())
-                .saveAt(LocalDateTime.now())
-                .userNickname(dto.getUserNickname())
-                .build();
+        Rank rank;
+        if (dto.getUserNickname() == null) {
+            rank = Rank.builder()
+                    .item(dto.getItem())
+                    .room(dto.getRoom())
+                    .playtime(dto.getPlaytime())
+                    .damage(dto.getDamage())
+                    .saveAt(LocalDateTime.now())
+                    .userNickname("none")
+                    .build();
+        } else {
+            rank = Rank.builder()
+                    .item(dto.getItem())
+                    .room(dto.getRoom())
+                    .playtime(dto.getPlaytime())
+                    .damage(dto.getDamage())
+                    .saveAt(LocalDateTime.now())
+                    .userNickname(dto.getUserNickname())
+                    .build();
+        }
         rankRepository.save(rank);
+
     }
 
     public List<Rank> findAll() {
