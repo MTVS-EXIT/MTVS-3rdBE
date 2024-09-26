@@ -21,7 +21,7 @@ public class RankController {
     @PostMapping("/rank")
     public ResponseEntity<?> save(@RequestBody RankRequestDTO dto) {
         rankService.save(dto);
-        return ResponseEntity.ok().body(ApiUtils.success(null));
+        return ResponseEntity.ok().body(ApiUtils.success("소방관 결과가 성공적으로 저장 되었습니다."));
     }
 
     @GetMapping("/ranks")

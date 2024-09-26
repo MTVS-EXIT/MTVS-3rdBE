@@ -23,8 +23,9 @@ public class DrankController {
 
     @PostMapping("/drank")
     public ResponseEntity<?> saveDrank(@RequestBody DrankRequestDTO.saveDTO dto) {
+        System.out.println("dto = " + dto);
         drankService.save(dto);
-        return ResponseEntity.ok().body(ApiUtils.success(null));
+        return ResponseEntity.ok().body(ApiUtils.success("드론 결과가 성공적으로 저장 되었습니다."));
     }
 
     @GetMapping("/dranks")

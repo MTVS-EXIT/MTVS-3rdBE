@@ -20,6 +20,7 @@ public class DrankService {
 
     public void save(DrankRequestDTO.saveDTO dto) {
         Drank drank = Drank.builder()
+                .playtime(dto.playtime())
                 .detection(dto.detection())
                 .safe(dto.safe())
                 .caution(dto.caution())
