@@ -1,3 +1,5 @@
+
+
 spring:
 #  // test DB (DB 없을 때 주석 풀고 사용)
 #  datasource:
@@ -29,3 +31,6 @@ spring:
 
 jwt:
   secret: ${JWT.SECRET}
+
+server:
+  port: 7757

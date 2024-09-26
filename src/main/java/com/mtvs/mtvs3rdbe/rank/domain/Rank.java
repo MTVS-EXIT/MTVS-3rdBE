@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "tbl_rank")
 public class Rank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
