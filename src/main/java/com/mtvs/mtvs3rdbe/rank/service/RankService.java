@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -20,7 +21,10 @@ public class RankService {
                 .item(dto.getItem())
                 .room(dto.getRoom())
                 .playtime(dto.getPlaytime())
-                .damage(dto.getDamage()).build();
+                .damage(dto.getDamage())
+                .saveAt(LocalDateTime.now())
+                .userNickname(dto.getUserNickname())
+                .build();
         rankRepository.save(rank);
     }
 

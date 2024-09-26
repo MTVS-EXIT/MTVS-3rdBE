@@ -22,15 +22,17 @@ public class Rank {
     private Integer room;
     private Integer item;
     private Integer damage;
+    private String userNickname;
 
     private LocalDateTime saveAt;
 
     @Builder
-    public Rank(String playtime, Integer room, Integer item, Integer damage, LocalDateTime saveAt) {
+    public Rank(String playtime, Integer room, Integer item, Integer damage, LocalDateTime saveAt, String userNickname) {
         this.playtime = playtime;
         this.room = room;
         this.item = item;
         this.damage = damage;
         this.saveAt = saveAt;
+        this.userNickname = userNickname;
     }
 }

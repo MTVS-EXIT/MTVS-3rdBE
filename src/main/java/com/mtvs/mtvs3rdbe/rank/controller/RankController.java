@@ -25,6 +25,6 @@ public class RankController {
     @GetMapping("/ranks")
     public ResponseEntity<?> ranks() {
         List<Rank> ranks = rankService.findAll();
-        return ResponseEntity.ok().body(ranks);
+        return ResponseEntity.ok().body(ApiUtils.success(ranks));
     }
 }
