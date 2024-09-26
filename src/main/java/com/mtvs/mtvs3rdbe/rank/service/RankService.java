@@ -4,6 +4,7 @@ import com.mtvs.mtvs3rdbe.rank.domain.Rank;
 import com.mtvs.mtvs3rdbe.rank.domain.RankRequestDTO;
 import com.mtvs.mtvs3rdbe.rank.repository.RankRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,5 +31,9 @@ public class RankService {
 
     public List<Rank> findAll() {
         return rankRepository.findAll();
+    }
+
+    public List<Rank> findRanks(Pageable pageable) {
+        return rankRepository.findByPlaytimeAsc(pageable);
     }
 }
