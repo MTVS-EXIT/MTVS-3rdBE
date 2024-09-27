@@ -19,15 +19,29 @@ public class DrankService {
     private final DrankRepository drankRepository;
 
     public void save(DrankRequestDTO.saveDTO dto) {
-        Drank drank = Drank.builder()
-                .playtime(dto.playtime())
-                .detection(dto.detection())
-                .safe(dto.safe())
-                .caution(dto.caution())
-                .danger(dto.danger())
-                .saveAt(LocalDateTime.now())
-                .userNickname(dto.userNickname())
-                .build();
+        Drank drank;
+        if (dto.userNickname() == null) {
+            drank = Drank.builder()
+                    .playtime(dto.playtime())
+                    .detection(dto.detection())
+                    .safe(dto.safe())
+                    .caution(dto.caution())
+                    .danger(dto.danger())
+                    .saveAt(LocalDateTime.now())
+                    .userNickname("none")
+                    .build();
+        } else {
+            drank = Drank.builder()
+                    .playtime(dto.playtime())
+                    .detection(dto.detection())
+                    .safe(dto.safe())
+                    .caution(dto.caution())
+                    .danger(dto.danger())
+                    .saveAt(LocalDateTime.now())
+                    .userNickname(dto.userNickname())
+                    .build();
+        }
+
 
         drankRepository.save(drank);
     }

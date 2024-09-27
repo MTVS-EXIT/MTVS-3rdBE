@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface DrankRepository extends JpaRepository<Drank, Long> {
 
-    @Query("SELECT d FROM Drank d ORDER BY d.playtime ASC")
+    @Query("SELECT d FROM Drank d WHERE d.userNickname IS NOT NULL AND d.playtime IS NOT NULL ORDER BY d.playtime ASC")
     List<Drank> findTop100ByPlaytimeAsc(Pageable pageable);
 }

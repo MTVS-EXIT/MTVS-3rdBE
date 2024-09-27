@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface RankRepository extends JpaRepository<Rank, Long> {
-    @Query("SELECT r FROM Rank r ORDER BY r.playtime ASC")
+    @Query("SELECT r FROM Rank r WHERE r.userNickname IS NOT NULL AND r.playtime IS NOT NULL ORDER BY r.playtime ASC")
     List<Rank> findByPlaytimeAsc(Pageable pageable);
 }
