@@ -9,6 +9,9 @@
 
 ## 🔥 기획 내용 ##
 제한적인 시야에서 드론의 안내를 받아 화재로 뒤덮인 건물을 탈출하는 내용으로 진행됩니다.<p><br>
+기획 초안 - 스토리 플로우
+![image](https://github.com/user-attachments/assets/3853d3cf-71a8-4d3b-b33d-d6669d72106f)
+
 
 ## 🕰️ 개발 기간 
 * 24.08.27 - 24.09.27
@@ -16,6 +19,16 @@
 ### 🐣 멤버 구성 
 - 김혜진 - 언리얼 서버 통신,  리더보드 , DB 설계, 서버 및 인프라 관리, API 설계 및 구현
 - 서주현 - chatbot 서빙 , 로그인(회원가입), DB 설계, 서버 및 인프라 관리 , API 설계 및 구현
+
+## 🚀 BE 구현 내용 
+![image](https://github.com/user-attachments/assets/5f1f94f6-85c2-409a-8cac-e66421c70e18)
+![image](https://github.com/user-attachments/assets/5ab21d33-f86e-4f7d-a447-b7a8cf259bf6)
+![image](https://github.com/user-attachments/assets/675983cf-43cf-4644-9cb3-8bb8a1f740bc)
+![image](https://github.com/user-attachments/assets/60e4db6d-3586-4a68-89c2-31fa654f0adb)
+![image](https://github.com/user-attachments/assets/c2b1f66d-d344-4550-ba10-229aface723a)
+![image](https://github.com/user-attachments/assets/1c8e3f22-568a-41e8-91c4-c8b3c8b7e1d7)
+
+
 
 ### 📢 개발 환경
 - 'java 17'
