@@ -23,6 +23,7 @@
 ## 🚀 BE 구현 내용 
 ![image](https://github.com/user-attachments/assets/5f1f94f6-85c2-409a-8cac-e66421c70e18)
 ![image](https://github.com/user-attachments/assets/5ab21d33-f86e-4f7d-a447-b7a8cf259bf6)
+![image](https://github.com/user-attachments/assets/e990f487-4ded-4f33-babc-68ae070f2092)
 ![image](https://github.com/user-attachments/assets/675983cf-43cf-4644-9cb3-8bb8a1f740bc)
 ![image](https://github.com/user-attachments/assets/60e4db6d-3586-4a68-89c2-31fa654f0adb)
 ![image](https://github.com/user-attachments/assets/c2b1f66d-d344-4550-ba10-229aface723a)
